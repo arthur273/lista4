@@ -1,4 +1,5 @@
 class Api::V1::TeachersController < ApplicationController
+    acts_as_token_authentication_handler_for Admin, only: [:create,:delete,:update]
     def index
         teachers = Teacher.all
         render json: teachers, status: :ok
@@ -47,7 +48,8 @@ class Api::V1::TeachersController < ApplicationController
         params.require(:teacher).permit(
             :name,
             :email,
-            :dataNascimento
+            :dataNascimento,
+            :pfp
         )
     end
 end

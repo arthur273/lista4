@@ -17,3 +17,17 @@
         {name:"Alexandre Lupe",matricula:"333333333",email:"alex.estudos@hotmail.com",dataNascimento:"1998-7-13",teacher_id: 2},
         {name:"Ana Paes",matricula:"444444233",email:"AnaPaes@aluno.unb.br",dataNascimento:"1999-9-9",teacher_id: 2},
         {name:"Cesarina Cielo",matricula:"123443211",email:"nadomuito@gmail.com",dataNascimento:"2000-12-12",teacher_id: 2}])
+
+    Teacher.all.each do |t|
+        t.pfp.attach(io: File.open('./public/pfp.jpg'),filename:'pfp.jpg')
+    end
+
+    Student.all.each do |t|
+        t.pfp.attach(io: File.open('./public/pfp.jpg'),filename:'pfp.jpg')
+    end
+
+    Language.all.each do |t|
+        t.documentation.attach(io: File.open('./public/documentacao1'),filename:'documentacao1')
+        t.documentation.attach(io: File.open('./public/documentacao2'),filename:'documentacao2')
+    end
+

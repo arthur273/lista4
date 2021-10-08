@@ -1,4 +1,5 @@
 class Api::V1::StudentsController < ApplicationController
+    acts_as_token_authentication_handler_for Admin, only: [:create,:delete]
     def index
         languages = Student.all
         render json: languages, status: :ok
@@ -35,7 +36,8 @@ class Api::V1::StudentsController < ApplicationController
             :matricula,
             :email,
             :dataNascimento,
-            :teacher_id
+            :teacher_id,
+            :pfp
         )
     end
 end

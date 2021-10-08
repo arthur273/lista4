@@ -4,4 +4,6 @@ class Student < ApplicationRecord
   validates :name,:matricula,:email,:dataNascimento,:teacher_id, presence: true
   validates :matricula,:email, uniqueness: true
   validates_length_of :matricula, is:9
+
+  has_one_attached :pfp
 end
